@@ -4,6 +4,7 @@ let postsMap = new Map();   // map tracking postId: number of comments on post
 let user = 2;   // userId to test
 let max = 0;
 
+// Fetch Most followed(Comments) post for a user
 // take user id and find all posts made by them
 fetch('https://jsonplaceholder.typicode.com/posts')
 .then(res => res.json())
@@ -21,7 +22,7 @@ function getPosts(userId, posts){
 function countComments() {
     fetch('https://jsonplaceholder.typicode.com/comments')
     .then(res => res.json())
-    .then(tallyComment)
+    .then(res => tallyComment(res))
     .then(printPosts);
 }
 
